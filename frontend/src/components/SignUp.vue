@@ -3,6 +3,7 @@
     <b-form class="SignupForm">
         <!-- name -->
         <b-form-group
+            class="left-txt"
             id="name-group"
             label-cols-sm="2"
             label-cols-lg="2"
@@ -13,6 +14,7 @@
         </b-form-group>
         <!-- email -->
         <b-form-group
+            class="left-txt"
             id="email-group"
             label-cols-sm="2"
             label-cols-lg="2"
@@ -23,6 +25,7 @@
         </b-form-group>
         <!-- password -->
         <b-form-group
+            class="left-txt"
             id="pass-group"
             label-cols-sm="2"
             label-cols-lg="2"
@@ -56,7 +59,7 @@ export default {
         // alert(JSON.stringify(this.form));
         firebase.auth().createUserWithEmailAndPassword(this.form.email.toString().trim(),this.form.password)
         .then(data =>{
-            data.user.updateProfile({displayName:this.form.name}).then(()=>{});
+            data.user.updateProfile({displayName:this.form.name}).then(()=>{this.$router.push('dashboard');});
             data.user.sendEmailVerification();
             console.log(data);
         }).catch(err => {
@@ -69,7 +72,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#pass-group{
+.left-txt{
     text-align: start;
 }
 .SignupForm{

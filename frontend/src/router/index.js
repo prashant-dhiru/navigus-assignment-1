@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import SignUp from '@/components/SignUp.vue'
 import LogIn from '@/components/LogIn.vue'
 import Dashboard from '@/components/Dashboard.vue'
+import DocView from '../views/DocView.vue'
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,11 @@ Vue.use(VueRouter)
     path: '/dashboard',
     name: 'Dashboard',
     component: Dashboard
+  },
+  {
+    path: '/docview/:id',
+    name: 'DocView',
+    component: DocView
   },
   {
     path: '/about',

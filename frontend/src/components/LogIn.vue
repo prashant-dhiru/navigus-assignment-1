@@ -4,6 +4,7 @@
         <!-- email -->
         <b-form-group
             id="email-group"
+            class="left-txt"
             label-cols-sm="2"
             label-cols-lg="2"
             label="E-mail"
@@ -14,6 +15,7 @@
         <!-- password -->
         <b-form-group
             id="pass-group"
+            class="left-txt"
             label-cols-sm="2"
             label-cols-lg="2"
             label="Password"
@@ -55,7 +57,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#pass-group{
+.left-txt{
     text-align: start;
 }
 .LoginForm{

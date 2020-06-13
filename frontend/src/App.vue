@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <H2>Navigus Assigment - 1 </H2>
-      <b-button variant="outline-danger" size="sm" @click.prevent="signOut()">Sign Out</b-button>
+      <b-button v-if="logged" variant="outline-danger" size="sm" @click.prevent="signOut()">Sign Out</b-button>
     </div>
     <router-view/>
   </div>
@@ -11,6 +11,11 @@
 import firebase from 'firebase';
 export default {
   name:"app",
+  computed:{
+    logged(){
+      return this.$store.state.user.loggedIn;
+    }
+  },
   methods : {
     signOut(){
       firebase.auth().signOut().then(()=>{this.$router.push("/")})
