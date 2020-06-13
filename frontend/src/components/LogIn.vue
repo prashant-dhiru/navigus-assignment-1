@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-form @submit.prevent="onSubmit" class="LoginForm">
+    <b-form class="LoginForm" @submit.prevent="onSubmit">
         <!-- email -->
         <b-form-group
             id="email-group"
@@ -23,7 +23,8 @@
         >
             <b-form-input id="pass" type="password" v-model="form.password" required></b-form-input>
         </b-form-group>
-        <b-button type="submit" variant="primary">Log In</b-button>
+        <b-button class="button" type="submit" variant="primary">Log In</b-button> 
+        <b-button class="button" type="reset" variant="outline-danger" @click.prevent="onResetPass()">Reset Password</b-button>
     </b-form>
   </div>
 </template>
@@ -48,6 +49,18 @@ export default {
             this.$router.push('dashboard');
         })
         .catch(err =>{
+            alert(err.message);
+            console.log(err);
+        });
+    }, 
+    onResetPass(){
+        // alert(JSON.stringify(this.form))
+        firebase.auth().sendPasswordResetEmail(this.form.email)
+        .then(() =>{
+            alert("Reset Email Sent, Please cheack your Inbox");
+        })
+        .catch(err =>{
+            alert(err.message);
             console.log(err);
         });
     }
@@ -62,5 +75,9 @@ export default {
 }
 .LoginForm{
     text-align: center;
+}
+.button{
+    margin-left: 5px;
+    margin-right: 5px;
 }
 </style>
