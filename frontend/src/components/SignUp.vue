@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-form @submit="onSubmit" @reset="onReset" class="form">
+    <b-form class="SignupForm">
         <!-- name -->
         <b-form-group
             id="name-group"
@@ -19,7 +19,7 @@
             label="E-mail"
             label-for="email"
         >
-            <b-form-input id="eamil" type="email" v-model="form.eamil" required></b-form-input>
+            <b-form-input id="eamil" type="email" v-model="form.email" required></b-form-input>
         </b-form-group>
         <!-- password -->
         <b-form-group
@@ -30,14 +30,16 @@
             label-for="pass"
             description="password should be atlest 6 characters"
         >
-            <b-form-input id="pass" v-model="form.password" required></b-form-input>
+            <b-form-input id="password" type="password" v-model="form.password" required></b-form-input>
         </b-form-group>
-        <b-button id="button" type="submit" variant="primary">Sign Up</b-button>
+        <b-button id="button" type="submit" variant="primary" @click.stop.prevent="onSubmit()">Sign Up</b-button>
     </b-form>
   </div>
 </template>
 
 <script>
+import firebase from "firebase";
+
 export default {
   name: 'SignUp',
   data(){
@@ -48,13 +50,28 @@ export default {
               password:'',
           }
       }
+  },
+  methods:{
+      onSubmit(){
+        // alert(JSON.stringify(this.form));
+        firebase.auth().createUserWithEmailAndPassword(this.form.email.toString().trim(),this.form.password)
+        .then(data =>{
+            data.user.updateProfile({displayName:this.form.name}).then(()=>{});
+            console.log(data);
+        }).catch(err => {
+            console.log(err);
+        });
+      }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.form{
+#pass-group{
+    text-align: start;
+}
+.SignupForm{
     text-align: center;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-form @submit="onSubmit" @reset="onReset" class="form">
+    <b-form @submit.prevent="onSubmit" class="LoginForm">
         <!-- email -->
         <b-form-group
             id="email-group"
@@ -9,7 +9,7 @@
             label="E-mail"
             label-for="email"
         >
-            <b-form-input id="eamil" type="email" v-model="form.eamil" required></b-form-input>
+            <b-form-input id="email" type="email" v-model="form.email" required></b-form-input>
         </b-form-group>
         <!-- password -->
         <b-form-group
@@ -20,7 +20,7 @@
             label-for="pass"
             description="password should be atlest 6 characters"
         >
-            <b-form-input id="pass" v-model="form.password" required></b-form-input>
+            <b-form-input id="pass" type="password" v-model="form.password" required></b-form-input>
         </b-form-group>
         <b-button type="submit" variant="primary">Sign Up</b-button>
     </b-form>
@@ -28,8 +28,9 @@
 </template>
 
 <script>
+import firebase from "firebase";
 export default {
-  name: 'Log In',
+  name: 'LogIn',
   data(){
       return {
           form:{
@@ -37,13 +38,28 @@ export default {
               password:'',
           }
       }
+  },
+  methods:{
+    onSubmit(){
+        // alert(JSON.stringify(this.form))
+        firebase.auth().signInWithEmailAndPassword(this.form.email,this.form.password)
+        .then(data =>{
+            console.log(data);
+        })
+        .catch(err =>{
+            console.log(err);
+        });
+    }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.form{
+#pass-group{
+    text-align: start;
+}
+.LoginForm{
     text-align: center;
 }
 </style>
