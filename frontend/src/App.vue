@@ -1,12 +1,24 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <H2>Navigus Assigment - 1 </H2>
+      <b-button variant="outline-danger" size="sm" @click.prevent="signOut()">Sign Out</b-button>
     </div>
     <router-view/>
   </div>
 </template>
+<script>
+import firebase from 'firebase';
+export default {
+  name:"app",
+  methods : {
+    signOut(){
+      firebase.auth().signOut().then(()=>{this.$router.push("/")})
+    }
+  }
+  
+}
+</script>>
 
 <style>
 #app {
@@ -19,6 +31,7 @@
 
 #nav {
   padding: 30px;
+  /* padding-bottom: 100px; */
 }
 
 #nav a {
@@ -29,4 +42,5 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
 </style>
