@@ -57,6 +57,7 @@ export default {
         firebase.auth().createUserWithEmailAndPassword(this.form.email.toString().trim(),this.form.password)
         .then(data =>{
             data.user.updateProfile({displayName:this.form.name}).then(()=>{});
+            data.user.sendEmailVerification();
             console.log(data);
         }).catch(err => {
             console.log(err);

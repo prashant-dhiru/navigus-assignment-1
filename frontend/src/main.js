@@ -15,6 +15,10 @@ const configOptions = {
   measurementId: process.env.VUE_APP_MEASUREMENT_ID
 };
 firebase.initializeApp(configOptions);
+firebase.auth().onAuthStateChanged(user => {
+  store.dispatch("fetchUser",user);
+});
+
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
