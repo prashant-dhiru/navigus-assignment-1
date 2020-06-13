@@ -18,7 +18,6 @@
             label-cols-lg="2"
             label="Password"
             label-for="pass"
-            description="password should be atlest 6 characters"
         >
             <b-form-input id="pass" type="password" v-model="form.password" required></b-form-input>
         </b-form-group>

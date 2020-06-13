@@ -10,7 +10,7 @@
         </b-col>
         <b-col md="3">
             <b-card bg-variant="success" header="Doc 2 - Bonus Point" text-variant="white" class="text-center card">
-                <b-card-text>This doc restrist users with  unverified email address, kindly look into your inbox to confirm you account verification</b-card-text>
+                <b-card-text>This doc is restricted for the users with unverified email address, kindly look into your inbox to confirm you account verification</b-card-text>
             </b-card>
         </b-col>
         <b-col md="3">
@@ -32,7 +32,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .card{
-    margin-right: 20px;
-    margin-top: 10px;
+    padding: 0px;
+    margin: 10px;
 }
 </style>
