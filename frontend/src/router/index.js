@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import SignUp from '@/components/SignUp.vue'
+import LogIn from '@/components/LogIn.vue'
 
 Vue.use(VueRouter)
 
@@ -11,6 +13,16 @@ Vue.use(VueRouter)
     component: Home
   },
   {
+    path: '/signup',
+    name: 'SignUp',
+    component: SignUp
+  },
+  {
+    path: '/login',
+    name: 'LogIn',
+    component: LogIn
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting
@@ -18,6 +30,7 @@ Vue.use(VueRouter)
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   }
+
 ]
 
 const router = new VueRouter({
