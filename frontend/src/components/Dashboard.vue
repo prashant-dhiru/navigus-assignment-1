@@ -14,8 +14,10 @@
             </b-card>
         </b-col>
         <b-col md="3">
-            <b-card border-variant="dark" header="Add new documents" align="center">
-                <b-card-text><b-icon icon="file-earmark-plus" class="h1"></b-icon></b-card-text>
+            <b-card @click="addDoc" border-variant="dark" header="Add new documents" align="center">
+            <b-card-text>
+                <b-icon icon="file-earmark-plus"  class="h1 mb-2"></b-icon>
+            </b-card-text>
             </b-card>
         </b-col>
     </b-row>
@@ -25,7 +27,12 @@
 
 <script>
 export default {
-  name:'Dashboard'
+  name:'Dashboard',
+  methods:{
+      addDoc(){
+        alert("Work in progress")
+      }
+  }
 }
 </script>
 

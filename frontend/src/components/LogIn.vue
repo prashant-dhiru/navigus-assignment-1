@@ -21,7 +21,7 @@
         >
             <b-form-input id="pass" type="password" v-model="form.password" required></b-form-input>
         </b-form-group>
-        <b-button type="submit" variant="primary">Sign Up</b-button>
+        <b-button type="submit" variant="primary">Log In</b-button>
     </b-form>
   </div>
 </template>
@@ -42,8 +42,8 @@ export default {
     onSubmit(){
         // alert(JSON.stringify(this.form))
         firebase.auth().signInWithEmailAndPassword(this.form.email,this.form.password)
-        .then(data =>{
-            console.log(data);
+        .then(() =>{
+            this.$router.push('dashboard');
         })
         .catch(err =>{
             console.log(err);

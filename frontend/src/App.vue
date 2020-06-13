@@ -2,9 +2,6 @@
   <div id="app">
     <div id="nav">
       <H2>Navigus Assigment - 1 </H2>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to='/dashboard'>Dashboard</router-link> |
       <b-button variant="outline-danger" size="sm" @click.prevent="signOut()">Sign Out</b-button>
     </div>
     <router-view/>
@@ -16,9 +13,7 @@ export default {
   name:"app",
   methods : {
     signOut(){
-      firebase.auth().signOut().then(()=>{this.$router.replace({
-        name :"/"
-      })})
+      firebase.auth().signOut().then(()=>{this.$router.push("/")})
     }
   }
   
