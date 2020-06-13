@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <div id="nav">
+      <H2>Navigus Assigment - 1 </H2>
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link to='/signup'>Sign Up</router-link> |
-      <router-link to='/login'>Log In</router-link>
+      <router-link to='/dashboard'>Dashboard</router-link>
     </div>
     <router-view/>
   </div>
@@ -21,6 +21,7 @@
 
 #nav {
   padding: 30px;
+  /* padding-bottom: 100px; */
 }
 
 #nav a {
@@ -31,4 +32,5 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
 </style>

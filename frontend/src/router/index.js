@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import SignUp from '@/components/SignUp.vue'
 import LogIn from '@/components/LogIn.vue'
+import Dashboard from '@/components/Dashboard.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ Vue.use(VueRouter)
     path: '/login',
     name: 'LogIn',
     component: LogIn
+  },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: Dashboard
   },
   {
     path: '/about',
