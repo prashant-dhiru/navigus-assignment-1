@@ -1,28 +1,19 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import SignUp from '@/components/SignUp.vue'
-import LogIn from '@/components/LogIn.vue'
 import Dashboard from '@/components/Dashboard.vue'
 import DocView from '../views/DocView.vue'
+import NotAuth from '@/components/NotAuth.vue'
+import PageNotFound from '@/components/PageNotFound.vue'
+import store from "../store/index.js"
 
 Vue.use(VueRouter)
 
   const routes = [
   {
-    path: '/',
+    path: '',
     name: 'Home',
-    component: Home
-  },
-  {
-    path: '/signup',
-    name: 'SignUp',
-    component: SignUp
-  },
-  {
-    path: '/login',
-    name: 'LogIn',
-    component: LogIn
+    component: Home,
   },
   {
     path: '/dashboard',
@@ -32,7 +23,26 @@ Vue.use(VueRouter)
   {
     path: '/docview/:id',
     name: 'DocView',
-    component: DocView
+    component: DocView,
+    beforeEnter: (to,from,next)=>{
+      if(to.params.id != '1' && to.params.id != '2')
+        next('/pagenotfound')
+      else if (to.params.id == 2 && store.state.user.data.emailVerified == false)
+        next('/notauth')
+      else if(store.state.user.loggedIn === false)
+        next('/notauth')
+      else next()
+    }
+  },
+  {
+    path: '/notauth',
+    name: 'NotAuth',
+    component: NotAuth
+  },
+  {
+    path: '/pagenotfound',
+    name: 'PageNotFound',
+    component: PageNotFound
   },
   {
     path: '/about',
