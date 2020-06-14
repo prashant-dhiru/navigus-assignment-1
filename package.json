@@ -1,0 +1,23 @@
+{
+  "name": "navigus-assignment-1",
+  "version": "1.0.0",
+  "description": "contains frontend and backend",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prashant-dhiru/navigus-assignment-1.git"
+  },
+  "author": "prashant dhirendra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prashant-dhiru/navigus-assignment-1/issues"
+  },
+  "homepage": "https://github.com/prashant-dhiru/navigus-assignment-1#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
