@@ -45,7 +45,8 @@ export default {
     onSubmit(){
         // alert(JSON.stringify(this.form))
         firebase.auth().signInWithEmailAndPassword(this.form.email,this.form.password)
-        .then(() =>{
+        .then((user) =>{
+            console.log(user);
             this.$router.push('dashboard');
         })
         .catch(err =>{
