@@ -1,6 +1,9 @@
 <template>
   <div class="dashboard">
-      you are viewing document {{$route.params.id}}
+      <div v-for="item in userMap" :key="item.avtxt">
+        <b-avatar v-b-popover.hover tem.avtxt>{{item.avtxt}} </b-avatar>
+      </div>
+      
   </div>
 </template>
 
@@ -10,13 +13,16 @@
 export default {
   name:'ConcurrentUser',
   data : ()=>({
-    user: []
+    userMap:Map
   }),
   created(){
-    this.$socket.client.on('addConUser',(data)=>{
-      console.log(data);
+    this.$socket.client.on('updatedUser',(doc,users)=>{
+      if(doc == this.$route.params.id)
+      this.userMap = users
+    
+      console.log(this.userMap);
     })
-  },
+  }
 }
 </script>
 

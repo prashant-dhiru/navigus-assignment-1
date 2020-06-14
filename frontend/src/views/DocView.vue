@@ -1,6 +1,6 @@
 <template>
   <div class="DocView">
-    <ConcurrentUsers></ConcurrentUsers>
+    <ConcurrentUsers doc=t></ConcurrentUsers>
   </div>
 </template>
 
@@ -15,8 +15,11 @@ export default {
   computed:{
   },
   created:function(){  
-    this.$socket.client.emit('addConUser',this.$store.state.user.data.uid)
+    this.$socket.client.emit('addConUser',{uid : this.$store.state.user.data.uid, name: this.$store.state.user.data.displayName, doc: this.$route.params.id})
   },
+  // destroyed:function(){
+  //   this.$socket.client.emit('destroyUser',this.$store.state.user.data.displayName)  
+  // }
 
 }
 </script>

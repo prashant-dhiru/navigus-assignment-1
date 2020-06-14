@@ -3,12 +3,12 @@
     <h3>Welcome back dude!!!</h3>
     <b-container>
     <b-row align-h="center">
-        <b-col md="3">
+        <b-col md="3" v-b-tooltip.hover.left title="click me">
             <b-card  @click="docView(1)" bg-variant="dark" header="Doc 1" text-variant="white" class="text-center card">
                 <b-card-text>Click on this document to view information about the concurrent user and the user last visited to this documents</b-card-text>
             </b-card>
         </b-col>
-        <b-col md="3">
+        <b-col md="3" v-b-tooltip.hover.right title="click me">
             <b-card @click="docView(2)" bg-variant="success" header="Doc 2 - Bonus Point" text-variant="white" class="text-center card">
                 <b-card-text>This doc is restricted for the users with unverified email address, kindly look into your inbox to confirm you account verification</b-card-text>
             </b-card>
