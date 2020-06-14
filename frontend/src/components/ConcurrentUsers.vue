@@ -5,13 +5,18 @@
 </template>
 
 <script>
+
+
 export default {
   name:'ConcurrentUser',
-  props: {
-    msg: String
+  data : ()=>({
+    user: []
+  }),
+  created(){
+    this.$socket.client.on('addConUser',(data)=>{
+      console.log(data);
+    })
   },
-  methods:{
-  }
 }
 </script>
 

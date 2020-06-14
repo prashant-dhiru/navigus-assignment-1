@@ -11,7 +11,13 @@ export default {
   name: 'DocView',
   components: {
       ConcurrentUsers
-  }
+  },
+  computed:{
+  },
+  created:function(){  
+    this.$socket.client.emit('addConUser',this.$store.state.user.data.uid)
+  },
+
 }
 </script>
 
