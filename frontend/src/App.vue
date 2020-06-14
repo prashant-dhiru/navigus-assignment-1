@@ -2,7 +2,8 @@
   <div id="app">
     <div id="nav">
       <H2>Navigus Assigment - 1 </H2>
-      <b-button v-if="logged" variant="outline-danger" size="sm" @click.prevent="signOut()">Sign Out</b-button>
+      <b-button class="pad" v-if="logged" variant="outline-danger" size="sm" @click.prevent="signOut()">Sign Out</b-button>
+      <b-button class="pad" v-if="logged" variant="outline-primary" size="sm" @click.prevent="gotoDashBoad()"> DashBoad</b-button>
     </div>
     <router-view/>
   </div>
@@ -18,7 +19,10 @@ export default {
   },
   methods : {
     signOut(){
-      firebase.auth().signOut().then(()=>{this.$router.push("/")})
+      firebase.auth().signOut().then(()=>{this.$router.push("/")});
+    },
+    gotoDashBoad(){
+      this.$router.push("/dashboard");
     }
   }
   
@@ -47,5 +51,8 @@ export default {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
-
+.pad{
+  margin-left: 5px;
+  margin-right: 5px;;
+}
 </style>
