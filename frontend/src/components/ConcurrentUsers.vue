@@ -27,13 +27,13 @@ export default {
       // }
     })
   },
-  beforeDestroy(){
-    console.log("destoryed components")
-    this.$socket.client.emit('destroyUser',this.$store.state.user.data.uid);
-  },
-  destroyed(){
-    this.$socket.client.off();
-  }
+  // beforeDestroy(){
+  //   console.log("destoryed components")
+  //   this.$socket.client.emit('destroyUser',this.$store.state.user.data.uid);
+  // },
+  // destroyed(){
+  //   this.$socket.client.off();
+  // }
 }
 </script>
 
