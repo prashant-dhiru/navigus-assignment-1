@@ -29,7 +29,7 @@ Vue.use(IconsPlugin)
 
 import VueSocketIOExt from 'vue-socket.io-extended'
 import io from 'socket.io-client'
-const socket = io('http://ec2-13-232-158-210.ap-south-1.compute.amazonaws.com:8080');
+const socket = io('https://ec2-13-232-158-210.ap-south-1.compute.amazonaws.com:8080');
 Vue.use(VueSocketIOExt,socket);
 
 
