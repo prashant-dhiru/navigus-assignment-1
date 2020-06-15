@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard">
-    <h3>Welcome back dude!!!</h3>
+    <h3>Welcome back {{this.$store.state.user.data.displayName}}!!!</h3>
     <b-container>
     <b-row align-h="center">
         <b-col md="3" v-b-tooltip.hover.left title="click me">

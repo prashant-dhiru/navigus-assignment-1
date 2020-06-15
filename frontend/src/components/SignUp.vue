@@ -59,7 +59,13 @@ export default {
         // alert(JSON.stringify(this.form));
         firebase.auth().createUserWithEmailAndPassword(this.form.email.toString().trim(),this.form.password)
         .then(data =>{
-            data.user.updateProfile({displayName:this.form.name}).then(()=>{this.$router.push('dashboard');});
+            data.user.updateProfile({displayName:this.form.name})
+            .then(()=>{
+                alert("new user created!!! login now")
+                this.form.name='';
+                this.form.email='';
+                this.form.password='';
+            });
             data.user.sendEmailVerification();
             console.log(data);
         }).catch(err => {

@@ -16,11 +16,7 @@ export default {
   },
   created:function(){  
     this.$socket.client.emit('addConUser',{uid : this.$store.state.user.data.uid, name: this.$store.state.user.data.displayName, doc: this.$route.params.id})
-  },
-  // destroyed:function(){
-  //   this.$socket.client.emit('destroyUser',this.$store.state.user.data.displayName)  
-  // }
-
+  }
 }
 </script>
 
