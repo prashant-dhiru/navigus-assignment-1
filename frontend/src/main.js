@@ -29,7 +29,7 @@ Vue.use(IconsPlugin)
 
 import VueSocketIOExt from 'vue-socket.io-extended'
 import io from 'socket.io-client'
-const socket = io('http://localhost:8080');
+const socket = io('https://navigus-1-19mca0065.herokuapp.com:8080');
 Vue.use(VueSocketIOExt,socket);
 
 
