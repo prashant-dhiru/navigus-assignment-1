@@ -4,7 +4,7 @@
     <b-row align-h="center">
       <b-col cols="3">
       <b-avatar-group size="60px" class='avagrp' >
-          <b-avatar v-for="user in userMap" :key="user[0]"  :variant="user[1].avaCol" :text="user[1].avtxt" v-b-tooltip.hover :title="user[1].name"></b-avatar>
+          <b-avatar v-for="user in userMap" :key="user[0]" :variant="user[1].avaCol" :text="user[1].avtxt" v-b-popover.hover="user[1].lastLogin" :title="user[1].name"></b-avatar>
       </b-avatar-group>
       </b-col>
     </b-row>
