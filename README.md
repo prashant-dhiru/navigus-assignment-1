@@ -24,3 +24,14 @@ Firebase auth using email
 >npm install
 >node server.js
 ```
+
+## Screenshots
+
+## Login and Signup
+![Login](screenshots/login.png)
+
+## Dashboard
+![Dashboard](screenshots/dashboad.png)
+
+## Current Users
+![users](screenshots/currentUser.png)
