@@ -31,7 +31,7 @@ Firebase auth using email
 ![Login](screenshots/login.png)
 
 ## Dashboard
-![Dashboard](screenshots/dashboad.png)
+![Dashboard](screenshots/dashboard.png)
 
 ## Current Users
 ![users](screenshots/currentUser.png)
